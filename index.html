@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Japan Trip Checklist</title>
+<meta name="theme-color" content="#fbf6ee">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Japan Trip">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+
+<style>
+:root{--bg:#fbf6ee;--card:#fff;--blush:#fbe9ea;--red:#c8333f;--ink:#2b2b2e;--mute:#8a8083;--green:#6fae85;--line:#ecd9d6;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Geeza Pro","Arial",sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:430px;margin:0 auto;padding:8px 8px 8px}
+header{text-align:center;padding:4px 0 6px}
+h1{margin:0;font:600 17px/1.1 Georgia,"Times New Roman",serif;letter-spacing:.18em;color:var(--ink)}
+.sub{margin:3px 0 0;font-size:10px;letter-spacing:.16em;color:var(--red);font-weight:600}
+.orn{display:flex;align-items:center;justify-content:center;gap:6px;margin:4px auto 0;color:var(--red);font-size:9px}
+.orn i{display:block;height:1px;width:46px;background:var(--line)}
+.prog{margin-top:6px;font-size:10.5px;color:var(--mute)}
+.prog b{color:var(--red);font-weight:700}
+.bar{height:3px;background:var(--blush);border-radius:3px;margin-top:3px;overflow:hidden}
+.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#e9868f,var(--red));transition:width .25s}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:6px;align-items:start}
+.col{display:grid;gap:6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:5px 6px 4px;position:relative}
+.card::after{content:"";position:absolute;top:0;left:10px;right:10px;height:2px;background:var(--red);opacity:.55;border-radius:0 0 2px 2px}
+h2{margin:1px 0 3px;font:700 11.5px/1.15 Georgia,serif;letter-spacing:.07em;text-transform:uppercase;display:flex;align-items:center;gap:4px}
+h2 svg{width:11px;height:11px;flex:none}
+.n{margin-left:auto;font:600 9px -apple-system,sans-serif;color:var(--mute);letter-spacing:0}
+.it{display:flex;align-items:flex-start;gap:5px;width:100%;background:none;border:0;padding:2.5px 0;text-align:start;font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.bx{flex:none;width:12px;height:12px;margin-top:0;border:1.2px solid #b9a9a6;border-radius:3px;background:#fff;display:grid;place-items:center;font-size:9px;line-height:1;color:#fff}
+.tx{font-size:11px;line-height:1.22}
+.it[aria-checked=true] .bx{background:var(--green);border-color:var(--green)}
+.it[aria-checked=true] .tx{color:#a99fa1;text-decoration:line-through;text-decoration-color:#d9c9c6}
+.it:focus-visible{outline:2px solid var(--red);outline-offset:1px;border-radius:3px}
+html,body{overscroll-behavior:none;overflow-x:hidden;-webkit-touch-callout:none}
+body{touch-action:manipulation;min-height:100vh}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>JAPAN TRIP 🇯🇵</h1>
+<p class="sub">TOKYO • 16–24 NOVEMBER 2026</p>
+<div class="orn"><i></i>✿ ⛩ ✿<i></i></div>
+<div class="prog">Completed <b id="done">0</b> / <span id="total">0</span></div>
+<div class="bar"><span id="fill"></span></div>
+</header>
+<main class="cols"><div class="col" id="c1"></div><div class="col" id="c2"></div></main>
+</div>
+<script>
+var S='<svg viewBox="0 0 20 20" aria-hidden="true"><g fill="#f4a9b0" stroke="#e9868f" stroke-width=".6"><path d="M10 10C8 6 8 3 10 1c2 2 2 5 0 9z"/><path d="M10 10C8 6 8 3 10 1c2 2 2 5 0 9z" transform="rotate(72 10 10)"/><path d="M10 10C8 6 8 3 10 1c2 2 2 5 0 9z" transform="rotate(144 10 10)"/><path d="M10 10C8 6 8 3 10 1c2 2 2 5 0 9z" transform="rotate(216 10 10)"/><path d="M10 10C8 6 8 3 10 1c2 2 2 5 0 9z" transform="rotate(288 10 10)"/></g><circle cx="10" cy="10" r="1.5" fill="#c8333f"/></svg>';
+var DATA=[
+["c1","Flights",[["Family flight tickets",1],["Front-row seats – outbound",1],["Front-row seats – return",0],["Mansour flight bag",0],["Rima flight toys",0],["Mansour iPad + headphones",0]]],
+["c1","Visit Japan Web",[["Najwa registration + QR",1],["Majid registration",0],["Mansour registration",0],["Rima registration",0]]],
+["c1","Accommodation",[["First 4 nights – Disney area",1],["Pay/book remaining 3 nights in Tokyo",0]]],
+["c1","Activities & Bookings",[["Finalize remaining activities and bookings",0]]],
+["c1","Internet",[["Japan SIM / eSIM",0]]],
+["c2","Passports & Visas",[["Najwa passport",1],["Najwa Japan visa",1],["Majid Japan visa",0],["Mansour Japan visa",0],["Rima Japan visa",0],["Majid salary certificate for visa",0]]],
+["c2","Disney",[["Tokyo Disneyland – 18 Nov",1],["Tokyo DisneySea – 20 Nov",1]]],
+["c2","Children",[["Change Rima’s YOYO stroller bassinet/seat",1],["Mansour travel clothes",0],["Rima travel clothes",0]]],
+["c2","Travel Preparation",[["Travel clothes",0]]]
+];
+var KEY="japan-trip-checklist-v1",saved={};
+try{saved=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){saved={}}
+var state={},els=[],total=0;
+DATA.forEach(function(c,ci){
+ var card=document.createElement("section");card.className="card";
+ var h=document.createElement("h2");h.innerHTML=S+"<span>"+c[1].replace("&","&amp;")+"</span><span class='n'></span>";
+ card.appendChild(h);
+ c[2].forEach(function(it,ii){
+  var id=ci+"-"+ii;total++;
+  state[id]=(id in saved)?!!saved[id]:!!it[1];
+  var b=document.createElement("button");b.type="button";b.className="it";b.setAttribute("role","checkbox");b.dataset.id=id;
+  b.innerHTML='<span class="bx"></span><span class="tx" dir="auto"></span>';
+  b.querySelector(".tx").textContent=it[0];
+  b.addEventListener("click",function(){state[id]=!state[id];try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}render()});
+  card.appendChild(b);els.push(b);
+ });
+ card._h=h.querySelector(".n");card._ids=c[2].map(function(_,ii){return ci+"-"+ii});
+ document.getElementById(c[0]).appendChild(card);DATA[ci].card=card;
+});
+function render(){
+ var d=0;
+ els.forEach(function(b){var on=state[b.dataset.id];if(on)d++;b.setAttribute("aria-checked",on?"true":"false");b.querySelector(".bx").textContent=on?"✓":""});
+ DATA.forEach(function(c){var k=0;c.card._ids.forEach(function(i){if(state[i])k++});c.card._h.textContent=k+"/"+c.card._ids.length});
+ document.getElementById("done").textContent=d;
+ document.getElementById("total").textContent=total;
+ document.getElementById("fill").style.width=(total?d/total*100:0)+"%";
+}
+render();
+if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
+</script>
+</body>
+</html>
